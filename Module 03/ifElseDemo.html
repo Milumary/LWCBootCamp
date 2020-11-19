@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Conditional Rendering" icon-name="custom:custom14">
+        <template if:true={showImage}>
+            <div class="slds-align_absolute-center">
+                <img height="500" width="200" src={TomUrl} alt="Tom"/>
+                <lightning-button variant="brand" label="Show Jerry" title="Primary action" onclick={handleClick} class="slds-m-right_x-small"></lightning-button>
+            </div>
+        </template>
+        <template if:false={showImage}>
+            <div class="slds-align_absolute-center">
+                <img height="800" width="200" src={JerryUrl} alt="Jerry"/>
+                <lightning-button variant="brand" label="Show Tom" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>
