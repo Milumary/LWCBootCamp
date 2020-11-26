@@ -1,0 +1,104 @@
+<template>
+    <lightning-card icon-name="standard:person_account" title="Account Quick Create">
+        <template if:true={accShow}>
+            <lightning-button variant="brand-outline" label="Show All Account Fields" 
+                name="accountShow" onclick={handleAcc} >
+            </lightning-button>
+        </template>
+        <template if:false={accShow}>
+            <lightning-button variant="brand-outline" label="Show Fewer Account Fields" 
+                name="accountShow" onclick={handleAcc} >
+            </lightning-button>
+        </template>
+        <lightning-record-edit-form object-api-name="Account" onsuccess={handleAccountCreated}>
+            <lightning-messages></lightning-messages>
+            <template if:true={accShow}>
+                <lightning-input-field field-name="Name" class="ofAcc"></lightning-input-field>
+            </template>
+            <template if:false={accShow}>
+                <lightning-record-form record-id={recordId} object-api-name="Account" layout-type="Full" columns="2"
+                        onsuccess={handleAccountCreated}>
+                </lightning-record-form>
+            </template>
+            <template if:true={accShow}>
+                <div class="slds-align_absolute-center">
+                    <lightning-button variant="brand-outline" label="Cancel" onclick={resetAcc}></lightning-button>
+                    &nbsp;
+                    <lightning-button type="submit" variant="brand" label="Save" name="saveAccount" onclick={saveAcc}></lightning-button>
+                </div>
+            </template>
+        </lightning-record-edit-form>
+    </lightning-card>
+
+    <lightning-card icon-name="standard:opportunity" title="Opportunity Quick Create">
+        <template if:true={oppShow}>
+            <lightning-button variant="brand-outline" label="Show All Opportunity Fields" 
+                name="opportunityShow" onclick={handleOpp} >
+            </lightning-button>
+        </template>
+        <template if:false={oppShow}>
+            <lightning-button variant="brand-outline" label="Show Fewer Opportunity Fields" 
+                name="opportunityShow" onclick={handleOpp} >
+            </lightning-button>
+        </template>
+        <lightning-record-edit-form object-api-name="Opportunity" onsuccess={handleOppCreated}>
+            <lightning-messages></lightning-messages>
+            <template if:true={oppShow}>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name='Name' class="ofOpp"></lightning-input-field>
+                        <lightning-input-field field-name='CloseDate' class="ofOpp"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name='StageName' class="ofOpp"></lightning-input-field>
+                        <lightning-input-field field-name='AccountId' class="ofOpp"></lightning-input-field>
+                    </div>
+                </div>
+            </template>
+            <template if:false={oppShow}>
+                <lightning-record-form record-id={recordId} object-api-name="Opportunity" layout-type="Full" columns="2"
+                        onsuccess={handleOppCreated}>
+                </lightning-record-form>
+            </template>
+            <template if:true={oppShow}>
+                <div class="slds-align_absolute-center">
+                    <lightning-button variant="brand-outline" label="Cancel" onclick={resetOpp}></lightning-button>
+                    &nbsp;
+                    <lightning-button type="submit" variant="brand" label="Save" name="saveOpp" onclick={saveOpp}></lightning-button>
+                </div>
+            </template>
+        </lightning-record-edit-form>
+    </lightning-card>
+
+    <lightning-card icon-name="standard:contact" title="Contact Quick Create">
+        <template if:true={contShow}>
+            <lightning-button variant="brand-outline" label="Show All Contact Fields" 
+                name="contactShow" onclick={handleCont} >
+            </lightning-button>
+        </template>
+        <template if:false={contShow}>
+            <lightning-button variant="brand-outline" label="Show Fewer Contact Fields" 
+                name="contactShow" onclick={handleCont} >
+            </lightning-button>
+        </template>
+        <lightning-record-edit-form object-api-name="Contact" onsuccess={handleContactCreated}>
+            <lightning-messages></lightning-messages>
+            <template if:true={contShow}>
+                <lightning-input-field field-name="Name" class="ofCont"></lightning-input-field>
+            </template>
+            <template if:false={contShow}>
+                <lightning-record-form record-id={recordId} object-api-name="Contact" layout-type="Full" columns="2"
+                        onsuccess={handleContactCreated}>
+                </lightning-record-form>
+            </template>
+            <template if:true={contShow}>
+                <div class="slds-align_absolute-center">
+                    <lightning-button variant="brand-outline" label="Cancel" onclick={resetCont}></lightning-button>
+                    &nbsp;
+                    <lightning-button type="submit" variant="brand" label="Save" name="saveContact" onclick={saveCont}></lightning-button>
+                </div>
+            </template>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
+
