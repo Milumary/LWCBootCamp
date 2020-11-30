@@ -1,0 +1,60 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <div class="slds-box">
+                <lightning-card title="Child One" icon-name="action:new_person_account">
+                    <div class="slds-align_absolute-center">
+                        <template if:false={select1}>
+                            <lightning-button variant="success" label="Select" name="selOne"
+                            onclick={handleClick} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </template>
+                        <template if:true={select1}>
+                            <lightning-button variant="destructive" label="Deselect" name="selOne"
+                            onclick={handleClick} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+
+        <div class="slds-col">
+            <div class="slds-box">
+                <lightning-card title="Child Two" icon-name="action:new_person_account">
+                    <div class="slds-align_absolute-center">
+                        <template if:false={select2}>
+                            <lightning-button variant="success" label="Select" name="selTwo"
+                            onclick={handleClick} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </template>
+                        <template if:true={select2}>
+                            <lightning-button variant="destructive" label="Deselect" name="selTwo"
+                            onclick={handleClick} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+
+        <div class="slds-col">
+            <div class="slds-box">
+                <lightning-card title="Child Three" icon-name="action:new_person_account">
+                    <div class="slds-align_absolute-center">
+                        <template if:false={select3}>
+                            <lightning-button variant="success" label="Select" name="selThree"
+                            onclick={handleClick} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </template>
+                        <template if:true={select3}>
+                            <lightning-button variant="destructive" label="Deselect" name="selThree"
+                            onclick={handleClick} class="slds-m-left_x-small">
+                            </lightning-button>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+    </div>
+</template>
