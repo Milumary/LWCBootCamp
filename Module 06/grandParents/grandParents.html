@@ -1,0 +1,17 @@
+<template>
+    <lightning-card icon-name="" title="Grand Parent">
+        <div class="slds-grid">
+            <div class="slds-col slds-size_2-of-3">
+                <span>
+                    {selNum} of 3 Children selected
+                </span>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <span>
+                    <lightning-button variant="brand" label="Reset All" onclick={handleReset}></lightning-button>
+                </span>
+            </div>
+        </div>
+        <c-parent childsel1={childsel1} childsel2={childsel2} childsel3={childsel3} onchildclick={handleChildClick}></c-parent>
+    </lightning-card>
+</template>
