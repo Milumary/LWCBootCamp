@@ -1,0 +1,18 @@
+<template>
+    <lightning-card icon-name="" title="Parent">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <p>Child One:{childsel1}</p>
+            </div>
+            <div class="slds-col">
+                <p>Child Two:{childsel2}</p>
+            </div>
+            <div class="slds-col">
+                <p>Child Three:{childsel3}</p>
+            </div>   
+        </div>
+        <div>
+            <c-child childsel1={childsel1} childsel2={childsel2} childsel3={childsel3}  onchildclick={handleChildClick}></c-child>
+        </div>
+    </lightning-card>
+</template>
