@@ -1,0 +1,74 @@
+<template>
+    <lightning-card icon-name="standard:person_account" title="Quick Create">
+        <lightning-combobox
+            name="progress"
+            label="Select Object"
+            value=""
+            placeholder="Select Object"
+            options={options}
+            onchange={handleChange}
+            required
+        ></lightning-combobox>
+        <p>Selected Object is: {value}</p>
+        <div class="slds-align-absolute-center">
+            <lightning-button variant="brand" label="Quick Create" 
+                onclick={handlequickClick} class="slds-m-left_x-small"></lightning-button>
+            <lightning-button variant="brand" label="New Record" 
+                onclick={newRecordClick} class="slds-m-left_x-small"></lightning-button>
+        </div>
+
+        <template if:true={accShow}>
+            <lightning-card icon-name="standard:person_account" title="Account Quick Create">
+                <lightning-record-edit-form object-api-name="Account" onsuccess={handleAccountCreated}>
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Name" class="ofAcc"></lightning-input-field>
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="brand-outline" label="Cancel" onclick={resetAcc}></lightning-button>
+                        &nbsp;
+                        <lightning-button type="submit" variant="brand" label="Save" name="saveAccount" onclick={saveAcc}></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </lightning-card>
+        </template> 
+        
+
+        <template if:true={oppShow}>
+            <lightning-card icon-name="standard:opportunity" title="Opportunity Quick Create">
+                <lightning-record-edit-form object-api-name="Opportunity" onsuccess={handleOppCreated}>
+                    <lightning-messages></lightning-messages>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field field-name='Name' class="ofOpp"></lightning-input-field>
+                            <lightning-input-field field-name='CloseDate' class="ofOpp"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field field-name='StageName' class="ofOpp"></lightning-input-field>
+                            <lightning-input-field field-name='AccountId' class="ofOpp"></lightning-input-field>
+                        </div>
+                    </div>
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="brand-outline" label="Cancel" onclick={resetOpp}></lightning-button>
+                        &nbsp;
+                        <lightning-button type="submit" variant="brand" label="Save" name="saveOpp" onclick={saveOpp}></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </lightning-card>
+        </template>
+
+
+        <template if:true={contShow}>
+            <lightning-card icon-name="standard:contact" title="Contact Quick Create">
+                <lightning-record-edit-form object-api-name="Contact" onsuccess={handleContactCreated}>
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Name" class="ofCont"></lightning-input-field>
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="brand-outline" label="Cancel" onclick={resetCont}></lightning-button>
+                        &nbsp;
+                        <lightning-button type="submit" variant="brand" label="Save" name="saveContact" onclick={saveCont}></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </lightning-card>
+        </template>
+
+    </lightning-card>
+</template>
